@@ -1,5 +1,7 @@
-package checkpoint.andela;
+package checkpoint.andela.db;
 
+import andela.buffer.Buffer;
+import andela.parser.FileParser;
 import andela.util.Constants;
 import andela.util.Date;
 

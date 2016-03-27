@@ -1,5 +1,6 @@
-package checkpoint.andela;
+package checkpoint.andela.parser;
 
+import andela.buffer.Buffer;
 import andela.util.Date;
 
 import java.io.BufferedReader;

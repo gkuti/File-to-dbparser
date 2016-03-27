@@ -1,4 +1,4 @@
-package checkpoint.andela;
+package checkpoint.andela.util;
 
 public class Constants {
     public final static String DATABASE_URL = "jdbc:mysql://localhost:3306/new_schema1";
