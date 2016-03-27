@@ -1,2 +1,6 @@
 *.idea
 out
+lib
+checkpoint-two.iml
+files/logtest.txt
+files/reactions.txt
