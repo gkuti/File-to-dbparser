@@ -4,7 +4,6 @@ import checkpoint.andela.buffer.Buffer;
 import checkpoint.andela.parser.FileParser;
 import checkpoint.andela.util.Constants;
 import checkpoint.andela.util.Date;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -119,15 +118,14 @@ public class DBWriter implements Runnable {
         if (keyValue.equals("//")) {
             statementBuilder();
             executeStatement();
+        }
+        if (keyValue.startsWith("/") || keyValue.startsWith("^")) {
+            setLogBuffer(keyValue);
+            appendValue(keyValue);
         } else {
-            if (keyValue.startsWith("/") || keyValue.startsWith("^")) {
-                setLogBuffer(keyValue);
-                appendValue(keyValue);
-            } else {
-                setLogBuffer(keyValue);
-                String[] seperated = keyValue.split(" - ");
-                keyValueStore(seperated[0], seperated[1]);
-            }
+            setLogBuffer(keyValue);
+            String[] seperated = keyValue.split(" - ");
+            keyValueStore(seperated[0], seperated[1]);
         }
     }
 
