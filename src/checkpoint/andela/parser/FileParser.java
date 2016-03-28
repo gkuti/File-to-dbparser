@@ -1,6 +1,7 @@
-package checkpoint.andela;
+package checkpoint.andela.parser;
 
-import andela.util.Date;
+import checkpoint.andela.buffer.Buffer;
+import checkpoint.andela.util.Date;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -1,4 +1,7 @@
-package checkpoint.andela;
+package checkpoint.andela.log;
+
+import checkpoint.andela.buffer.Buffer;
+import checkpoint.andela.db.DBWriter;
 
 import java.io.BufferedWriter;
 import java.io.File;

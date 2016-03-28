@@ -1,7 +1,9 @@
-package checkpoint.andela;
+package checkpoint.andela.db;
 
-import andela.util.Constants;
-import andela.util.Date;
+import checkpoint.andela.buffer.Buffer;
+import checkpoint.andela.parser.FileParser;
+import checkpoint.andela.util.Constants;
+import checkpoint.andela.util.Date;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

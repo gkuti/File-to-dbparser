@@ -1,4 +1,4 @@
-package checkpoint.andela;
+package checkpoint.andela.buffer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 

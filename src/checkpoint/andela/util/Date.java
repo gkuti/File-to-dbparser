@@ -1,4 +1,4 @@
-package checkpoint.andela;
+package checkpoint.andela.util;
 
 import java.text.SimpleDateFormat;
 

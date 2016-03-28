@@ -17,6 +17,7 @@ public class LogWriterTest {
 
     @Test
     public void testWriteLog() throws Exception {
+        logWriter = new LogWriter(logBuffer, "files/logtest.txt");
         logWriter.writeLog("Hello");
         assertTrue(logWriter.file.exists());
     }

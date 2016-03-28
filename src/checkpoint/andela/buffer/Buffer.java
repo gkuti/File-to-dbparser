@@ -1,4 +1,4 @@
-package checkpoint.andela;
+package checkpoint.andela.buffer;
 
 public interface Buffer {
     public void set(String line) throws InterruptedException;
