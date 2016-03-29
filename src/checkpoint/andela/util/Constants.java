@@ -1,5 +1,8 @@
 package checkpoint.andela.util;
 
+/**
+ * Constants class
+ */
 public class Constants {
     public final static String DATABASE_URL = "jdbc:mysql://localhost:3306/new_schema1";
     public final static String USER = "root";
