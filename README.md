@@ -17,7 +17,7 @@ The program consist of three threads.
 ----------
 **UML CLASS DIAGRAM**
 
-![Uml class Diagram](https://github.com/andela-gkuti/Checkpoint-one/blob/master/uml.png?raw=true)
+![Uml class Diagram](https://github.com/andela-gkuti/Checkpoint-two/blob/develop/UML.png?raw=true)
 
 
 ----------
