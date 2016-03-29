@@ -17,7 +17,7 @@ The program consist of three threads.
 ----------
 **UML CLASS DIAGRAM**
 
-![Uml class Diagram](https://github.com/andela-gkuti/Checkpoint-one/blob/master/uml.png?raw=true)
+![Uml class Diagram](https://github.com/andela-gkuti/Checkpoint-two/blob/develop/UML.png?raw=true)
 
 
 ----------
@@ -30,11 +30,11 @@ This is a key-value or attribute-value file, data is read by lines.
  
 ```java
 public boolean isNeeded(String line) {
-        if (line.startsWith("#")) {
-            return false;
-        }
-        return true;
+    if (line.startsWith("#")) {
+        return false;
     }
+    return true;
+}
 ```
 
 Apart from the needed key-value lines, we have lines that begin with other characters which was taken care of by the Dbwriter.
@@ -42,35 +42,34 @@ Apart from the needed key-value lines, we have lines that begin with other chara
   Lines that begin with a "/" or "^" indicates a continued value of the current or last key read, so this value are appended together with "**" character.
 ```java
 public void keyValueOperation(String keyValue) {
-        if (keyValue.equals("//")) {
-            statementBuilder();
-            executeStatement();
-        } else {
-            if (keyValue.startsWith("/") || keyValue.startsWith("^")) {
-                setLogBuffer(keyValue);
-                appendValue(keyValue);
-            } else {
-                setLogBuffer(keyValue);
-                String[] seperated = keyValue.split(" - ");
-                keyValueStore(seperated[0], seperated[1]);
-            }
-        }
+    if (keyValue.equals("//")) {
+        statementBuilder();
+        executeStatement();
     }
+    if (keyValue.startsWith("/") || keyValue.startsWith("^")) {
+        setLogBuffer(keyValue);
+        appendValue(keyValue);
+    } else {
+        setLogBuffer(keyValue);
+        String[] seperated = keyValue.split(" - ");
+        keyValueStore(seperated[0], seperated[1]);
+      }
+}
 ```
 
 ```java
 public void keyValueStore(String newkey, String newvalue) {
-        String value;
-        if (keyList.contains(newkey)) {
-            currentKey = newkey;
-            value = valueMap.get(newkey) + "**" + newvalue;
-            valueMap.put(newkey, value);
-        } else {
-            keyList.add(newkey);
-            valueMap.put(newkey, newvalue);
-            currentKey = newkey;
-        }
-    }
+    String value;
+    if (keyList.contains(newkey)) {
+        currentKey = newkey;
+        value = valueMap.get(newkey) + "**" + newvalue;
+        valueMap.put(newkey, value);
+    } else {
+        keyList.add(newkey);
+        valueMap.put(newkey, newvalue);
+        currentKey = newkey;
+      }
+}
 ```
 
 Working Procedure
