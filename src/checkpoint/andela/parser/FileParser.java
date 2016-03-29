@@ -51,7 +51,6 @@ public class FileParser implements Runnable {
                     if (!line.startsWith("//")) {
                         setLogBuffer(line);
                     }
-                    System.out.println(line);
                 }
                 line = bufferedReader.readLine();
             }
