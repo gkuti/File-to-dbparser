@@ -7,7 +7,6 @@ import checkpoint.andela.db.DBWriter;
 import checkpoint.andela.log.LogWriter;
 import checkpoint.andela.parser.FileParser;
 import checkpoint.andela.util.Constants;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
