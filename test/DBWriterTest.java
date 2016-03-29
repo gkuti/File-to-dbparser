@@ -133,4 +133,9 @@ public class DBWriterTest {
         value = valueMap.get("COMMENT");
         assertEquals("Good reaction", value);
     }
+    @Test
+    public void testStopRun() throws Exception {
+        dbWriter.stopRun();
+        assertEquals("expect to return false", false, dbWriter.getState());
+    }
 }
