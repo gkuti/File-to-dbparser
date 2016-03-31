@@ -2,6 +2,7 @@ package checkpoint.andela.parser;
 
 import checkpoint.andela.buffer.Buffer;
 import checkpoint.andela.util.Date;
+import checkpoint.andela.util.Logger;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -121,11 +122,6 @@ public class FileParser implements Runnable {
      * @param text to be stored in the buffer
      */
     public void setLogBuffer(String text) {
-        try {
-            date = new Date();
-            sharedLogLocation.set("FileParser Thread " + "\t" + "(" + date.getDate() + ")" + "\t" + "--- wrote " + text + " to buffer");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Logger.setBuffer(sharedLogLocation, "FileParser", text);
     }
 }
