@@ -32,7 +32,7 @@ public class DBWriter implements Runnable {
         sharedDataLocation = dataBuffer;
         sharedLogLocation = logBuffer;
         try {
-            dbManager = new DbManager(Constants.DATABASE_URL, Constants.USER, Constants.PASSWORD);
+            dbManager = new DbManager(Constants.DATABASE_URL.getValue(), Constants.USER.getValue(), Constants.PASSWORD.getValue());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class DBWriter implements Runnable {
      */
     private void executeStatement() {
         try {
-            dbManager.insert(Constants.TABLE, keyStatement, valueStatement);
+            dbManager.insert(Constants.TABLE.getValue(), keyStatement, valueStatement);
             newOperation();
         } catch (SQLException e) {
             e.printStackTrace();
