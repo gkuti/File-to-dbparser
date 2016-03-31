@@ -15,9 +15,9 @@ public class Main {
     public static void main(String[] args) {
         Buffer dataBuffer = new DatabaseBuffer();
         Buffer logBuffer = new LogBuffer();
-        FileParser fileParser = new FileParser(dataBuffer, logBuffer, Constants.DATA_FILENAME);
+        FileParser fileParser = new FileParser(dataBuffer, logBuffer, Constants.DATA_FILENAME.getValue());
         DBWriter dbWriter = new DBWriter(dataBuffer, logBuffer);
-        LogWriter logWriter = new LogWriter(logBuffer, Constants.LOG_FILENAME);
+        LogWriter logWriter = new LogWriter(logBuffer, Constants.LOG_FILENAME.getValue());
         ExecutorService e = Executors.newCachedThreadPool();
         e.execute(fileParser);
         e.execute(dbWriter);

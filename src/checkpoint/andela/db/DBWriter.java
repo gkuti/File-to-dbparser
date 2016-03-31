@@ -4,6 +4,7 @@ import checkpoint.andela.buffer.Buffer;
 import checkpoint.andela.parser.FileParser;
 import checkpoint.andela.util.Constants;
 import checkpoint.andela.util.Date;
+import checkpoint.andela.util.Logger;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class DBWriter implements Runnable {
         sharedDataLocation = dataBuffer;
         sharedLogLocation = logBuffer;
         try {
-            dbManager = new DbManager(Constants.DATABASE_URL, Constants.USER, Constants.PASSWORD);
+            dbManager = new DbManager(Constants.DATABASE_URL.getValue(), Constants.USER.getValue(), Constants.PASSWORD.getValue());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,7 +62,7 @@ public class DBWriter implements Runnable {
      */
     private void executeStatement() {
         try {
-            dbManager.insert(Constants.TABLE, keyStatement, valueStatement);
+            dbManager.insert(Constants.TABLE.getValue(), keyStatement, valueStatement);
             newOperation();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -118,12 +119,7 @@ public class DBWriter implements Runnable {
      * @param text to be stored in the buffer
      */
     public void setLogBuffer(String text) {
-        try {
-            date = new Date();
-            sharedLogLocation.set("DBWriter Thread " + "\t" + "(" + date.getDate() + ")" + "\t" + "--- collected " + text + " from buffer");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Logger.setBuffer(sharedLogLocation, "DBWriter", text);
     }
 
     /**
